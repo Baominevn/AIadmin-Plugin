@@ -1,0 +1,7 @@
+learning:
+  enabled: true
+  max_entries: 500
+  save_every_updates: 8
+
+  # Learning memory from observation sessions, not chat memory
+  observation: {}

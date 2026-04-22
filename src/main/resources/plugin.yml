@@ -1,0 +1,32 @@
+name: AIAdmin
+version: 1.0.1
+main: me.aiadmin.AIAdmin
+api-version: '1.21'
+author: Baominevn
+softdepend:
+  - LiteBans
+  - TAB
+  - PlaceholderAPI
+  - Citizens
+  - ZNPCs
+  - ZNPCsPlus
+commands:
+  aiadmin:
+    description: AIAdmin commands
+    usage: /ai help
+    aliases: [ai]
+permissions:
+  aiadmin.use:
+    description: Basic AIAdmin access for scan and dashboard commands
+    default: false
+  aiadmin.staff:
+    description: Staff-level AIAdmin access except runtime config and plugin management
+    default: false
+    children:
+      aiadmin.use: true
+  aiadmin.admin:
+    description: Full AIAdmin access
+    default: op
+    children:
+      aiadmin.use: true
+      aiadmin.staff: true

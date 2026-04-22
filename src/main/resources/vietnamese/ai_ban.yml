@@ -1,0 +1,23 @@
+ai_ban:
+  default_duration: "12h"
+  default_reason: "AI phát hiện gian lận"
+  exempt_ops: true
+  commands:
+    ban: "litebans:ban {player} {duration} {reason}"
+    kick: "litebans:kick {player} {reason}"
+  colors:
+    prefix: "&8[&c&lAI&f_ban&8] "
+    success: "&a"
+    warning: "&6"
+    error: "&c"
+    info: "&b"
+  ui:
+    templates:
+      success: "{prefix}&aĐã áp dụng &8» &f{message}"
+      warning: "{prefix}&6Lưu ý &8» &e{message}"
+      error: "{prefix}&cCảnh báo &8» &f{message}"
+      info: "{prefix}&bThông tin &8» &f{message}"
+    frame:
+      enabled: false
+      top: "&8&m------------------------------"
+      bottom: "&8&m------------------------------"

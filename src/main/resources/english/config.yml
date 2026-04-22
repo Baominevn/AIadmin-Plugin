@@ -1,0 +1,101 @@
+use-config: false
+
+scan:
+  interval_minutes: 30
+  max_players_per_scan: 50
+  auto_dashboard_min_tier: "ALERT"
+  suspicion_watch: 30
+  suspicion_alert: 50
+  suspicion_danger: 70
+  suspicion_severe: 90
+  max_accounts_per_ip: 4
+  join_burst_limit: 3
+  join_burst_window_seconds: 120
+  warn_player_on_alt_limit: true
+  max_move_delta_watch: 1.55
+
+actions:
+  auto_kick_on_danger: true
+  auto_ban_on_severe: false
+  kick_message: "AIAdmin detected unusual behavior. Please wait for staff review."
+  pipeline:
+    enabled: true
+    warn_tier: "WATCH"
+    flag_tier: "ALERT"
+    kick_tier: "DANGER"
+    ban_tier: "SEVERE"
+    tempban_tier: "DANGER"
+    do_warn: true
+    do_flag: true
+    do_kick: true
+    do_ban: false
+    auto_tempban_hack_likely: true
+    action_cooldown_seconds: 45
+    ban_reason: "AI detected high-risk cheating behavior"
+    hack_tempban_reason: "AI detected hack-like behavior"
+    protection:
+      relax_for_likely_pro: true
+    messages:
+      warn: "&e[Warn] {player} tier={tier} suspicion={suspicion} skill={skill}"
+      flag: "&6[Flag] {player} tier={tier} suspicion={suspicion} skill={skill}"
+      kick: "&c[Kick] {player} tier={tier} suspicion={suspicion} skill={skill}"
+      ban: "&4[Ban] {player} tier={tier} suspicion={suspicion} skill={skill}"
+
+ai_ban:
+  enabled: true
+  ban_duration: 12h
+  ban_reason: "AI detected cheating"
+
+chat:
+  trigger_prefix: "ai "
+  enable_chat_ai: true
+  admin_mode_name: "Grox"
+  admin_relay:
+    prefix: "&c&l[ADMIN] "
+    name: "&bGrox"
+    separator: "&f: "
+    message: "&b{message}"
+  request_cooldown_seconds: 5
+  max_concurrent_requests: 3
+  max_prompt_chars: 700
+
+openai:
+  enabled: true
+  api_key: ""
+  api_key_env: "GROQ_API_KEY"
+  endpoint: "https://api.groq.com/openai/v1"
+  api_style: "auto"
+  model: "llama-3.3-70b-versatile"
+  connect_timeout_seconds: 10
+  request_timeout_seconds: 20
+  max_output_tokens: 260
+  max_reply_chars: 420
+  temperature: 0.9
+  top_p: 1.0
+  include_reasoning_payload: false
+  include_text_payload: false
+  reasoning_effort: "low"
+  verbosity: "low"
+  system_prompt: "You are Grox, a Minecraft admin assistant. Talk naturally like a real person, be smart, clear, flexible, and genuinely useful. Do not sound robotic or overly formal. Light Gen Z slang and a small joke are fine when it fits, but never be toxic or vulgar. Answer the main point first, prefer replies with real information and useful context, and include exact command examples when needed. Focus on server guidance, rules, feature explanations, and staff support."
+
+console:
+  debug_matches: false
+
+suspicion:
+  points:
+    default_alert: 3
+    alt_account: 3
+    join_burst: 2
+    movement_spike: 1
+    killaura: 3
+    speed: 2
+    reach: 2
+    fly: 3
+    fly_hover: 3
+    scaffold: 3
+    spam: 2
+    xray: 4
+    timer: 2
+    velocity: 2
+    autoclicker: 2
+    aimassist: 2

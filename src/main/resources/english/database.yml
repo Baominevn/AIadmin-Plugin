@@ -1,0 +1,11 @@
+database:
+  enabled: false
+  host: "127.0.0.1"
+  port: 3306
+  name: "aiadmin"
+  username: "root"
+  password: ""
+  table_prefix: "aiadmin_"
+  parameters: "useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=UTC"
+  auto_create_tables: true
+  write_async: true

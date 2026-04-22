@@ -1,0 +1,30 @@
+# Shared plugin integration settings
+# true  = use the external plugin when available, otherwise fall back to AIAdmin's internal logic
+# false = always use AIAdmin's internal logic
+
+plugins:
+  ai_ban: true
+  tab: true
+  placeholder: true
+  citizens: true
+  znpcs: true
+  vulcan: true
+  ncp: true
+  velocity: true
+
+behavior:
+  fallback_to_internal_when_missing: true
+  log_status_on_startup: true
+
+plugin_manager:
+  enabled: true
+  builtin_catalog_enabled: true
+  auto_enable_after_download: false
+  allow_direct_urls: false
+  download_timeout_seconds: 45
+  # AIAdmin already has built-in plugin keys such as:
+  # advancedbanx, anti-dupe, geyser, grimac, ironwatch,
+  # libertybans, luckperms, packetevents, placeholderapi,
+  # viabackwards, viaversion, litebans
+  # catalog is optional and only for your own extra entries.
+  catalog: {}

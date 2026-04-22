@@ -1,0 +1,7 @@
+learning:
+  enabled: true
+  max_entries: 500
+  save_every_updates: 8
+
+  # Bộ nhớ học từ quá trình quan sát, không phải bộ nhớ chat
+  observation: {}

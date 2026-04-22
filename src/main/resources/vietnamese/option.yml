@@ -1,0 +1,84 @@
+ai:
+  language: "vi"
+  persona: "thông minh, rõ ràng, hữu ích và nói chuyện tự nhiên"
+  intelligence_mode: "high"
+  tone: "tự nhiên, gần gũi, không quá khách sáo"
+  slang_level: "medium"
+  response_style:
+    concise: true
+    use_examples_when_helpful: true
+    max_sentences: 5
+  humor:
+    enabled: true
+    safe_only: true
+  expressions:
+    enabled: true
+    prefix: ""
+    suffix: ""
+    emoji_rate_percent: 4
+
+anticheat:
+  report_points: 4
+  report_observe_seconds: 120
+  report_observe_interval_seconds: 5
+  notify_reporter: true
+  suspicion_decay:
+    enabled: true
+    interval_minutes: 20
+    points_per_interval: 1
+  behavior:
+    speed_threshold_blocks_per_tick: 0.93
+    vertical_up_threshold: 0.72
+    snap_yaw_threshold: 60.0
+    snap_pitch_threshold: 1.1
+    cps_warn_threshold: 13
+    cps_flag_threshold: 16
+    recent_combat_click_window_ms: 700
+    combat_context_ms: 1600
+    mining_context_ms: 2200
+    bridging_context_ms: 1800
+    parkour_context_ms: 1600
+    knockback_context_ms: 1300
+    lag_context_ms: 1500
+    reach_threshold: 3.4
+    min_hit_interval_ms: 60
+    hover_fly_streak_threshold: 3
+    hover_fly_horizontal_threshold: 0.10
+    hover_fly_vertical_threshold: 0.08
+    chat_spam_burst_threshold: 5
+    chat_spam_repeat_threshold: 3
+    scaffold_burst_threshold: 2
+    scaffold_horizontal_speed_threshold: 0.12
+    xray_hidden_ore_threshold: 6
+    xray_air_exposure_max: 1
+    xray_window_seconds: 600
+
+scan:
+  random_when_over_limit: true
+  prioritize_high_risk_first: true
+  round_robin_when_over_limit: true
+  open_dashboard_for_admins_on_auto_scan: true
+
+notifications:
+  staff_alert_cooldown_seconds: 5
+  send_console_log: true
+  mention_admin_in_danger: true
+
+admin_mode:
+  relay_publicly: true
+  only_admin_can_toggle: true
+
+performance:
+  max_parallel_ai_requests: 8
+  cache_player_analysis_seconds: 30
+  lag_optimizer:
+    enabled: true
+    sample_ticks: 20
+    low_tps_threshold: 17.5
+    critical_tps_threshold: 14.5
+    low_scan_cap: 30
+    critical_scan_cap: 15
+    notify_cooldown_seconds: 90
+    run_commands_on_critical: false
+    critical_command_cooldown_seconds: 180
+    critical_commands: []

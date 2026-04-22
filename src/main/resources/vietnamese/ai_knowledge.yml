@@ -1,0 +1,87 @@
+aichat:
+  use_custom_first: false
+  prefer_model_when_available: true
+  default_reply: "Mình chưa bắt đúng ý đó lắm. Bạn thử hỏi rõ hơn về luật server, cách chơi hoặc thông tin chung nhé."
+  rules:
+    greeting:
+      mode: contains
+      match: ["xin chào", "chào", "hello", "hi", "yo", "alo"]
+      replies:
+        - "Chào {player}, hiện có {online} người đang online."
+        - "Hello {player}, server đang có {online} người chơi nè."
+        - "Chào {player}. Online hiện tại là {online}."
+    rules_info:
+      mode: contains
+      match: ["luật", "rule", "nội quy"]
+      replies:
+        - "Luật cơ bản là không hack, không lợi dụng bug và tôn trọng người chơi khác lẫn staff."
+        - "Cứ chơi công bằng, đừng dùng tool gian lận và đừng phá trải nghiệm của người khác là ổn."
+        - "Tóm tắt nhanh: chơi đẹp, không cheat, không toxic quá đà."
+    command_help:
+      mode: contains
+      match: ["lệnh", "help", "hướng dẫn", "cách dùng"]
+      replies:
+        - "Người chơi chỉ cần chat `ai <nội dung>`. Staff xem lệnh đầy đủ bằng `/ai help`."
+        - "Nếu bạn là member thì cứ nhắn `ai <câu hỏi>`. Staff có thêm lệnh ở `/ai help`."
+        - "Bạn cứ hỏi trực tiếp bằng `ai ...`, còn staff thì xem thêm ở `/ai help`."
+    ping_exact:
+      mode: equals
+      match: ["ping"]
+      replies:
+        - "Pong. Server đang ổn."
+        - "Pong. Kết nối hiện tại vẫn bình thường."
+        - "Pong. Mọi thứ vẫn mượt."
+    report_hint:
+      mode: contains
+      match: ["báo cáo", "report", "nghi hack", "hack không"]
+      replies:
+        - "Hiện member chưa có lệnh report riêng. Nếu nghi hack thì báo staff kiểm tra giúp nhé."
+        - "Staff có thể dùng `/ai flag <player> <type>` hoặc `/ai observe <player> on` để theo dõi kỹ hơn."
+        - "Muốn xem chi tiết hơn thì staff có thể mở `/ai dashboard` hoặc dùng `/ai check <player>`."
+    status_info:
+      mode: contains
+      match: ["server sao rồi", "tình trạng server", "status", "ổn không"]
+      replies:
+        - "Server hiện đang chạy ổn định."
+        - "Tình trạng chung đang ổn. Nếu bạn thấy gì lạ thì cứ báo staff nhé."
+        - "Mọi thứ hiện khá ổn, mình có thể giúp bạn kiểm tra thêm thông tin nếu cần."
+
+knowledge:
+  enabled: true
+  use_direct_answer_when_matched: true
+  entries:
+    rules_basic:
+      title: "Luật"
+      keywords: ["luật", "nội quy", "hack", "cheat", "gian lận"]
+      answer: "Luật chính là không hack, không lợi dụng bug, tôn trọng staff và không phá trải nghiệm của người chơi khác."
+    commands_basic:
+      title: "Lệnh"
+      keywords: ["lệnh", "help", "hướng dẫn", "cách dùng"]
+      answer: "Người chơi có thể chat với AI bằng `ai <nội dung>`. Staff có thể dùng `/ai help`, `/ai check <player>`, `/ai observe <player> on` và `/ai dashboard`."
+    anticheat_info:
+      title: "Anti-cheat"
+      keywords: ["anticheat", "scan", "quan sát", "observe", "nghi ngờ"]
+      answer: "AIAdmin kết hợp quan sát trực tiếp, điểm nghi ngờ, cảnh báo từ anti-cheat và công cụ review của staff để giảm false positive."
+    support_info:
+      title: "Hỗ trợ"
+      keywords: ["staff", "admin", "hỗ trợ", "báo cáo"]
+      answer: "Nếu bạn nghi ai đó hack thì hãy báo staff để họ kiểm tra bằng `/ai check` hoặc `/ai observe`."
+    ai_role:
+      title: "Grox"
+      keywords: ["bạn là ai", "grox", "aiadmin", "trợ lý"]
+      answer: "Mình là Grox, trợ lý admin AI của server. Mình giúp trả lời câu hỏi cơ bản và hỗ trợ staff sàng lọc người chơi đáng nghi."
+
+rule:
+  enabled: true
+  safe_reply: "Xin lỗi, mình không thể trả lời nội dung đó. Bạn hỏi nội dung khác nhé."
+  blocked_topics:
+    - "hướng dẫn hack"
+    - "bypass anti-cheat"
+    - "ddos"
+    - "exploit server"
+    - "tự hại"
+  blocked_phrases:
+    - "crack premium"
+    - "dupe bug mới nhất"
+    - "lệnh phá server"
+    - "tool hack free"

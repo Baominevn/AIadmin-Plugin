@@ -1,0 +1,87 @@
+aichat:
+  use_custom_first: false
+  prefer_model_when_available: true
+  default_reply: "I did not quite catch that. Try asking more clearly about server rules, how to play, or general info."
+  rules:
+    greeting:
+      mode: contains
+      match: ["hello", "hi", "hey", "greetings", "yo", "sup"]
+      replies:
+        - "Hey {player}, there are currently {online} players online."
+        - "Hello {player}. The server currently has {online} players online."
+        - "Hi {player}, online count right now is {online}."
+    rules_info:
+      mode: contains
+      match: ["rule", "rules", "policy"]
+      replies:
+        - "Basic rules: no hacks, no bug abuse, and respect other players and staff."
+        - "Play fair, avoid cheat tools, and do not ruin the experience for others."
+        - "Quick summary: play fair, no cheating, and do not be overly toxic."
+    command_help:
+      mode: contains
+      match: ["command", "help", "how to use", "guide"]
+      replies:
+        - "Players can talk to me with `ai <message>`. Staff can view the full command list with `/ai help`."
+        - "If you're a member, just type `ai <question>`. Staff has extra commands in `/ai help`."
+        - "You can talk to me directly with `ai ...`, and staff can check the full command list with `/ai help`."
+    ping_exact:
+      mode: equals
+      match: ["ping"]
+      replies:
+        - "Pong. The server looks stable."
+        - "Pong. Connection looks normal right now."
+        - "Pong. Everything still looks smooth."
+    report_hint:
+      mode: contains
+      match: ["report", "suspicious", "hack", "is cheating"]
+      replies:
+        - "Regular players do not have a report command right now. Please contact staff if you suspect cheating."
+        - "Staff can use `/ai flag <player> <type>` or `/ai observe <player> on` for a closer review."
+        - "For manual review, staff can open `/ai dashboard` or run `/ai check <player>`."
+    status_info:
+      mode: contains
+      match: ["server status", "how is the server", "status", "is it okay"]
+      replies:
+        - "The server looks stable right now."
+        - "Everything seems normal at the moment."
+        - "Overall status looks fine. I can help with basic server information if you need it."
+
+knowledge:
+  enabled: true
+  use_direct_answer_when_matched: true
+  entries:
+    rules_basic:
+      title: "Rules"
+      keywords: ["rules", "rule", "hack", "cheat", "policy"]
+      answer: "Main rules: no hacks, no bug abuse, respect staff, and do not ruin the experience for other players."
+    commands_basic:
+      title: "Commands"
+      keywords: ["command", "help", "how to use", "guide"]
+      answer: "Players can chat with AI using `ai <message>`. Staff can use `/ai help`, `/ai check <player>`, `/ai observe <player> on`, and `/ai dashboard`."
+    anticheat_info:
+      title: "Anti-cheat"
+      keywords: ["anticheat", "anti cheat", "scan", "observe", "suspicious"]
+      answer: "AIAdmin combines live observation, suspicious behavior scoring, anti-cheat console alerts, and staff review tools to reduce false positives."
+    support_info:
+      title: "Support"
+      keywords: ["staff", "admin", "support", "report"]
+      answer: "If you suspect cheating, contact staff so they can review the player with `/ai check` or `/ai observe`."
+    ai_role:
+      title: "Grox"
+      keywords: ["who are you", "what are you", "grox", "aiadmin"]
+      answer: "I'm Grox, the server's AI admin assistant. I help answer basic questions and assist staff with suspicious-player triage."
+
+rule:
+  enabled: true
+  safe_reply: "Sorry, I can't answer that. Please ask something else."
+  blocked_topics:
+    - "hack tutorial"
+    - "bypass anti-cheat"
+    - "ddos"
+    - "server exploit"
+    - "self-harm"
+  blocked_phrases:
+    - "premium crack"
+    - "latest dupe bug"
+    - "server destroy command"
+    - "free hack tool"

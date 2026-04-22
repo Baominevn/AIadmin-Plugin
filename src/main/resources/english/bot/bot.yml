@@ -1,0 +1,45 @@
+bot:
+  enabled: true
+  bot_name: "Grox"
+  selected: ""
+  trigger_tier: "ALERT"
+  observe_seconds: 600
+  follow_interval_ticks: 20
+  commands:
+    spawn: []
+    follow: []
+    remove: []
+  znpcs:
+    enabled: true
+    id_start: 100
+    plugin_names: ["ZNPCs", "ZNPCsPlus"]
+    commands:
+      create: "znpcs create {znpc_id} PLAYER {bot_name}"
+      line: "znpcs lines {znpc_id} {znpc_line}"
+      skin: "znpcs skin {znpc_id} {skin}"
+      toggle_look: "znpcs toggle {znpc_id} look"
+      delete: "znpcs delete {znpc_id}"
+      after_create: ""
+    grox:
+      id: 100
+      skin: "zombie"
+      line: "&c&l[ADMIN]-&bGrox"
+      toggle_look: true
+    toggle_look_for_all: false
+  ai:
+    enabled: true
+    use_llm: true
+    llm_prefix: "[BotAI] "
+    report_chat: true
+    report_interval_seconds: 18
+    playful_rate: 0.18
+    voice:
+      normal:
+        - "[BotAI] {bot} is tracking {player} | tier={tier} | suspicion={suspicion}"
+        - "[BotAI] {player} currently has {alerts} alerts, keep observing. {learning}"
+      playful:
+        - "[BotAI] {player} looks a bit spicy, keep an eye on them."
+        - "[BotAI] {player} feels pretty sharp right now, watch a few more rounds."
+      danger:
+        - "[BotAI] High alert: {player} is already at tier={tier}, staff should check now."
+        - "[BotAI] Cheat risk is becoming clearer for {player}, alerts={alerts}, suspicion={suspicion}. {learning}"

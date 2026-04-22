@@ -1,0 +1,23 @@
+ai_ban:
+  default_duration: "12h"
+  default_reason: "AI detected cheating"
+  exempt_ops: true
+  commands:
+    ban: "litebans:ban {player} {duration} {reason}"
+    kick: "litebans:kick {player} {reason}"
+  colors:
+    prefix: "&8[&c&lAI&f_ban&8] "
+    success: "&a"
+    warning: "&6"
+    error: "&c"
+    info: "&b"
+  ui:
+    templates:
+      success: "{prefix}&aApplied &8» &f{message}"
+      warning: "{prefix}&6Notice &8» &e{message}"
+      error: "{prefix}&cAlert &8» &f{message}"
+      info: "{prefix}&bInfo &8» &f{message}"
+    frame:
+      enabled: false
+      top: "&8&m------------------------------"
+      bottom: "&8&m------------------------------"
